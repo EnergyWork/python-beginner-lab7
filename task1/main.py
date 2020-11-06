@@ -2,6 +2,8 @@ import pandas as pd
 import re, os, sys
 from datetime import datetime as dt
 
+path = os.path.abspath(__file__)
+
 def task1():
     df = pd.read_csv('E:\\myPy\\Lab7\\moscow-buildings.csv', index_col='house_id')
     df = df.drop(df[df.house_year == 'н.д.'].index)

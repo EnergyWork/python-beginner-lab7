@@ -1,5 +1,7 @@
 import pandas as pd
 
+path = os.path.abspath(__file__)
+
 def task1():
     data = pd.read_csv('E:\\myPy\\Lab7\\titanic.csv', index_col='PassengerId')
     alive = data['Survived'].value_counts()[1]
