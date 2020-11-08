@@ -1,9 +1,12 @@
 import pandas as pd
+import os
 
 path = os.path.abspath(__file__)
+WORK_AREA = os.path.split(path)[0]
+PATH_TO_TITANIC = os.path.join(WORK_AREA, 'titanic.csv')
 
 def task1():
-    data = pd.read_csv('E:\\myPy\\Lab7\\titanic.csv', index_col='PassengerId')
+    data = pd.read_csv(PATH_TO_TITANIC, index_col='PassengerId')
     alive = data['Survived'].value_counts()[1]
     dead = data['Survived'].value_counts()[0]
     total = alive + dead
@@ -11,7 +14,7 @@ def task1():
     print()
 
 def task2():
-    data = pd.read_csv('E:\\myPy\\Lab7\\titanic.csv', index_col='PassengerId')
+    data = pd.read_csv(PATH_TO_TITANIC, index_col='PassengerId')
     womans = data['Sex'].value_counts()[1]
     mens = data['Sex'].value_counts()[0]
     print('Количество женщин =', womans)
@@ -24,7 +27,7 @@ def task2():
     print()
 
 def task3():
-    data = pd.read_csv('E:\\myPy\\Lab7\\titanic.csv', index_col='PassengerId')
+    data = pd.read_csv(PATH_TO_TITANIC, index_col='PassengerId')
     first = len(data.loc[data['Pclass'] == 1, 'Pclass'])
     first_a = len(data.loc[(data['Survived'] == 1) & (data['Pclass'] == 1)])
     second = len(data.loc[data['Pclass'] == 2, 'Pclass'])
@@ -41,7 +44,7 @@ def task3():
     print()
 
 def task4():
-    data = pd.read_csv('E:\\myPy\\Lab7\\titanic.csv', index_col='PassengerId')
+    data = pd.read_csv(PATH_TO_TITANIC, index_col='PassengerId')
     avg = data['Age'].mean()
     med = data['Age'].median()
     print('Среднее всех =', avg)
@@ -97,7 +100,7 @@ def mens_names(data):
     print()
 
 def task5():
-    data = pd.read_csv('E:\\myPy\\Lab7\\titanic.csv', index_col='PassengerId')
+    data = pd.read_csv(PATH_TO_TITANIC, index_col='PassengerId')
     womans_names(data)
     mens_names(data)
 
